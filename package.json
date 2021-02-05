@@ -1,0 +1,33 @@
+{
+  "name": "three-directionallight",
+  "version": "1.0.0",
+  "description": "directionalLight Extended",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobanmak/three-DirectionalLight.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bobanmak/three-DirectionalLight/issues"
+  },
+  "homepage": "https://github.com/bobanmak/three-DirectionalLight#readme",
+  "devDependencies": {
+    "@rollup/plugin-replace": "latest",
+    "async": "latest",
+    "dat.gui": "latest",
+    "gulp": "latest",
+    "rollup-plugin-buble": "latest",
+    "rollup-plugin-node-resolve": "latest",
+    "gulp-rollup": "latest",
+    "rollup": "latest",
+    "three-viewport": "git+https://github.com/i3ernie/three-viewport.git"
+  }
+}
