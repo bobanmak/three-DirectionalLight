@@ -9,6 +9,7 @@ const gulp = require('gulp');
 
 const build_vslAMD = require("./build/build_amd");
 const build_interfaceAMD = require("./build/build_interface_amd");
+const build_perspectiveCamAMD = require("./build/build_perspectivecam_amd");
 
 var pkg = require('./package.json');
 
@@ -32,9 +33,16 @@ gulp.task("build", ( done ) => {
         done();
    
     });
+
+    build_perspectiveCamAMD( ()=>{
+        
+        done();
+   
+    });
 });
 
 gulp.task("buildAMD", build_vslAMD );
 gulp.task("buildAMD", build_interfaceAMD );
+gulp.task("buildAMD", build_perspectiveCamAMD  );
 
 gulp.task('default', gulp.series('init', 'buildAMD') );
