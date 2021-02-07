@@ -8,6 +8,7 @@ const gulp = require('gulp');
 
 
 const build_vslAMD = require("./build/build_amd");
+const build_interfaceAMD = require("./build/build_interface_amd");
 
 var pkg = require('./package.json');
 
@@ -25,10 +26,15 @@ gulp.task("build", ( done ) => {
             done();
        
     });
+
+    build_interfaceAMD( ()=>{
+        
+        done();
+   
+    });
 });
 
 gulp.task("buildAMD", build_vslAMD );
-
-//gulp.task("buildES", build_domeventsES );
+gulp.task("buildAMD", build_interfaceAMD );
 
 gulp.task('default', gulp.series('init', 'buildAMD') );
