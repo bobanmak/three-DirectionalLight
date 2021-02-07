@@ -48,7 +48,7 @@ const Presetable = {
             if ( typeof this[ attrName ] === "undefined" ) return;
 
             // if Vector3 
-            if ( this[ attrName ].isVector3 ){
+            if ( this[ attrName ].isVector3 || this[ attrName ].isEuler ){
                 this[ attrName ].set( ...preset[ attrName ] );
             }
 
@@ -59,7 +59,7 @@ const Presetable = {
 
                     if ( typeof this[ attrName ][ nestedAttrName ] === "undefined" ) return;
 
-                    if ( this[ attrName ][ nestedAttrName ].isVector3 ){
+                    if ( this[ attrName ][ nestedAttrName ].isVector3 || this[ attrName ].isEuler ){
                         this[ attrName ][ nestedAttrName ].set( ...preset[ attrName ][ nestedAttrName ] );
                     }
                     else {

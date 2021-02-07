@@ -5,6 +5,17 @@ import DirectionalLightExtended from "../../src/DirectionalLightExtended_presets
 
 
 let VP = new Viewport();
+VP.init();
+VP.start();
+
+//document.body.appendChild( VP.renderer.domElement );
+VP.renderer.setClearColor('white', 0 );
+VP.renderer.shadowMap.enabled	= true;
+VP.renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
+
+VP.camera.position.set(4,4,11);
+VP.camera.lookAt(VP.scene.position);
+stage1( VP );
 
 const presets = {
 	daylight: {
@@ -20,34 +31,18 @@ const presets = {
 	}
 };
 
-VP.init();
-VP.start();
-
-//document.body.appendChild( VP.renderer.domElement );
-VP.renderer.setClearColor('white', 0 );
-VP.renderer.shadowMap.enabled	= true;
-VP.renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
-
-VP.camera.position.set(4,4,11);
-VP.camera.lookAt(VP.scene.position);
-stage1( VP );
-
-
 // add DirectionalLightExtended
 let directionalLight 	= new DirectionalLightExtended( { color: "0xff0000", intensity: 0.5 }  );
-
-console.log( directionalLight );
-// create Lights with presets
-//let directionalLight 	= new DirectionalLightExtended( { color: "0xff0000", intensity: 0.5 } , presets  );
 
 // add presets on runtime
 directionalLight.createPresets( presets );
 
+// create Lights with presets
+//let directionalLight 	= new DirectionalLightExtended( { color: "0xff0000", intensity: 0.5 } , presets  );
+
 directionalLight.position.set(3, 6, 3 );
 directionalLight.target.position.set(0, 0, 0);
 VP.scene.add( directionalLight );
-
-
 
 
 // enable shadow
@@ -64,11 +59,3 @@ setTimeout( () => {
 setTimeout( () => { 
 	directionalLight.loadPreset( "nighttime" );
 }, 5000);
-
-// animation
-/*
-VP.loop.add(function( delta, now ){
-	var angle	= 0.1 * Math.PI*2*now;
-	directionalLight.target.position.set( 3*Math.cos(angle), 0, 3	*Math.sin(angle) );
-});
-*/
