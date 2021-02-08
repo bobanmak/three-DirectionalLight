@@ -2,6 +2,8 @@ import * as THREE from "../../node_modules/three/build/three.module.js";
 import Viewport from "../../node_modules/three-viewport/dist/viewport.es.js"
 import stage1 from "./stage1.module.js"
 import DirectionalLightExtended from "../../src/DirectionalLightExtended_presets.module.js"
+import Presetable from "../../src/Presetable.module.js"
+import Switchable from "../../src/Switchable.module.js"
 
 
 let VP = new Viewport();
@@ -32,7 +34,11 @@ const presets = {
 };
 
 // add DirectionalLightExtended
-let directionalLight 	= new DirectionalLightExtended( { color: "0xff0000", intensity: 0.5 }  );
+//let directionalLight 	= new DirectionalLightExtended( { color: "0xff0000", intensity: 0.5 }  );
+let directionalLight 	= new THREE.DirectionalLight( { color: "0xff0000", intensity: 0.5 }  );
+Presetable.implement( directionalLight );
+Switchable.implement( directionalLight );
+
 
 // add presets on runtime
 directionalLight.addPresets( presets );

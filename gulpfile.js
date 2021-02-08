@@ -6,12 +6,7 @@
 
 const gulp = require('gulp');
 
-
-const build_vslAMD = require("./build/build_amd");
-const build_interfaceAMD = require("./build/build_interface_amd");
-const build_perspectiveCamAMD = require("./build/build_perspectivecam_amd");
-
-var pkg = require('./package.json');
+const build_intefaces = require("./build/build_interfaces_amd");
 
 
 gulp.task('init', ( done ) => {
@@ -22,27 +17,13 @@ gulp.task('init', ( done ) => {
 
 gulp.task("build", ( done ) => {
     "use strict";
-    build_vslAMD( ()=>{
+    build_intefaces( ()=>{
         
             done();
        
     });
-
-    build_interfaceAMD( ()=>{
-        
-        done();
-   
-    });
-
-    build_perspectiveCamAMD( ()=>{
-        
-        done();
-   
-    });
 });
 
-gulp.task("buildAMD", build_vslAMD );
-gulp.task("buildAMD", build_interfaceAMD );
-gulp.task("buildAMD", build_perspectiveCamAMD  );
+gulp.task("buildAMD", build_intefaces );
 
 gulp.task('default', gulp.series('init', 'buildAMD') );
