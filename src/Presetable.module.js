@@ -81,5 +81,5 @@ const Presetable = {
 
     }
 };
-
+export {Presetable};
 export default Presetable;
