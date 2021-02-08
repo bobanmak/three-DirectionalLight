@@ -36,11 +36,22 @@ const Presetable = {
         
     },
 
+    getPreset: function( name ){
+
+        if ( typeof this.presets[ name ] === "undefined" || !this.presets[ name ] ){
+            console.warn( name + " Preset is not defined!" );
+            return null;
+        } 
+        else {
+            return this.presets[ name ];
+        }
+    },
+
     loadPreset: function( name ){
 
-        let preset = this.presets[ name ];
+        let preset = this.getPreset( name );
 
-        if ( typeof preset === "undefined" ) console.warn( name + " Preset is not defined!" );
+        if ( !preset ) return;
 
         Object.keys( preset ).forEach( ( attrName ) => {
 
