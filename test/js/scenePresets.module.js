@@ -35,7 +35,7 @@ const presets = {
 let directionalLight 	= new DirectionalLightExtended( { color: "0xff0000", intensity: 0.5 }  );
 
 // add presets on runtime
-directionalLight.createPresets( presets );
+directionalLight.addPresets( presets );
 
 // create Lights with presets
 //let directionalLight 	= new DirectionalLightExtended( { color: "0xff0000", intensity: 0.5 } , presets  );

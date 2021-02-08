@@ -11,7 +11,7 @@ const Presetable = {
         console.log( "interface - presets: ", this.presets );
     },
 
-    createPresets: function( presets ){
+    addPresets: function( presets ){
 
         let keys = Object.keys( presets );
         let presetValues;
