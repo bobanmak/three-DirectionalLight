@@ -22,10 +22,10 @@ const DirectionalLightExtended = function( opts ){
     };
     this.options = Object.assign( {}, defaults, opts );
 
-    Switchable.initialize.call( this, this.options);
+    this.initSwitchable( this.options );
 };
 
-DirectionalLightExtended.prototype = Object.assign( Object.create( THREE.DirectionalLight.prototype ), Switchable, {
+DirectionalLightExtended.prototype = Object.assign( Object.create( THREE.DirectionalLight.prototype ), Switchable.interface, {
     constructor : DirectionalLightExtended
 });
 
